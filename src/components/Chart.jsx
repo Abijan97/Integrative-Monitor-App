@@ -30,7 +30,7 @@ function Chart({ sensor, user, setSensor }) {
         data: [],
         fill: false,
         backgroundColor: "red",
-        borderWidth: "1",
+        borderWidth: "2",
         radius: "",
         borderColor: "red",
       },
