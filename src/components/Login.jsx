@@ -34,22 +34,16 @@ function Login(props) {
       });
   };
 
-  const formStyle = {
-    backgroundColor: "rgb(0, 0, 0, 0.7)",
-    padding: "50px 30px 50px 30px",
-    borderRadius: "20px",
-    color: "white",
-  };
 
   return (
-    <div className="row">
+    <div className="row bg-success">
       <div className="col-12 mt-5">
         <center>
           <h3>User Login</h3>
         </center>
       </div>
       <div className="col-3"></div>
-      <form className="container mt-5 mb-5 col-6" style={formStyle}>
+      <form className="container mt-5 mb-5 col-6">
         <div className="row">
           <div className="col-12">
             <div className="row">
