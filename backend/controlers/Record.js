@@ -16,13 +16,13 @@ exports.addRecord = async (req, res) => {
     const timestamp = new Date().toISOString();
 
     if (req.body.thresholdValue <= temperature) {
-      const alert = new Alert({
+      const newAlert = new Alert({
         temperature,
         timestamp,
         sensorId,
       });
 
-      await alert.save();
+      await newAlert.save();
 
       const email = environmentVariable.email;
       const password = environmentVariable.password;
@@ -32,7 +32,7 @@ exports.addRecord = async (req, res) => {
         password,
         req.body.userEmail,
         "Alert!!!",
-        "your sensor has more tempeture more than treshhold value"
+        "Your sensor has a tempeture more than treshhold value"
       );
     }
 
@@ -71,6 +71,7 @@ exports.getRecord = async (req, res) => {
       }
     })
     .catch((err) => {
+      console.log(err)
       return res.status(500).json({
         data: null,
         error: "No sensor found",

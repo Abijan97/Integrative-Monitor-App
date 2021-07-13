@@ -5,7 +5,7 @@ const { userSchema } = require("../modules/User");
 
 const User = mongoose.model("User", userSchema);
 
-const mailAdapter = require("../adapters/sendMail");
+const mailSender = require("../adapters/sendMail");
 const tokenAdapter = require("../adapters/token");
 const incriptAdapter = require("../adapters/incript");
 const environmentVariable = require("../adapters/environmentVariables");
@@ -109,7 +109,7 @@ exports.changePassword = async (req, res) => {
       return;
     }
 
-    mailAdapter
+    mailSender
       .sendMail(
         email,
         password,
@@ -143,7 +143,7 @@ exports.changePassword = async (req, res) => {
 exports.newPassword = async (req, res) => {
   try {
     if (!req.params.id)
-      return res.status(500).send("something wrong !. Try again");
+      return res.status(500).send("Something wrong !. Try again");
 
     res.render("index", { route: "/api/auth/restPassword/" + req.params.id });
   } catch (err) {
@@ -154,13 +154,13 @@ exports.newPassword = async (req, res) => {
 exports.restPassword = async (req, res) => {
   try {
     if (!req.params.id)
-      return res.status(500).send("something wrong !. Try again");
+      return res.status(500).send("Something wrong !. Try again");
 
-    const hashPassword = await bcrypt.hash(req.body.password, 10);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
     User.findByIdAndUpdate(
       { _id: req.params.id },
-      { password: hashPassword },
+      { password: hashedPassword },
       function (err, result) {
         if (err) {
           res.status(404).send("Not Found!");

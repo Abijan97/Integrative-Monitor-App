@@ -4,20 +4,6 @@ const bodyParser = require("body-parser");
 const config = require("config");
 const app = express();
 
-// if(!config.get("jwtPrivateKey")){
-//   console.log("FATAL ERROR: jwtPrivateKey not defined ")
-//   process.exit(1);
-// }
-
-// if(!config.get("email")){
-//   console.log("FATAL ERROR: email not defined ")
-//   process.exit(1);
-// }
-// if(!config.get("password")){
-//   console.log("FATAL ERROR: password not defined ")
-//   process.exit(1);
-// }
-
 const environmentVariable = require("./adapters/environmentVariables");
 
 const Auth = require("./routes/Auth");
