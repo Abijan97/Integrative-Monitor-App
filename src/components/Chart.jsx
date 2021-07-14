@@ -6,9 +6,10 @@ import axios from "axios";
 import api from "../api";
 
 const chartStyle = {
-  width: "1000px",
+  width: "700px",
   height: "auto",
   margin: "auto",
+  color:"#1a0e30"
 };
 
 function Chart({ sensor, user, setSensor }) {
@@ -22,7 +23,7 @@ function Chart({ sensor, user, setSensor }) {
         fill: false,
         radius: "3",
         borderWidth: "3",
-        backgroundColor: "#152238",
+        backgroundColor: "#26660b",
         borderColor: "#45b6fe",
       },
       {
@@ -30,7 +31,7 @@ function Chart({ sensor, user, setSensor }) {
         data: [],
         fill: false,
         backgroundColor: "red",
-        borderWidth: "2",
+        borderWidth: "1",
         radius: "",
         borderColor: "red",
       },
@@ -50,7 +51,9 @@ function Chart({ sensor, user, setSensor }) {
   });
 
   useEffect(() => {
-    axios.get(`${api}/get-records/${sensor}`).then((res) => {
+    axios.get(`${api}/record/get`,{
+      sensorId:sensor
+    }).then((res) => {
       console.log("Sen Records", res.data);
 
       setrecords(res.data);

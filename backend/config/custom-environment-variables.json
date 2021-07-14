@@ -1,0 +1,5 @@
+{
+    "jwtPrivateKey":"exposition_jwtPrivateKey",
+    "email":"exposition_email",
+    "password":"exposition_password"
+}

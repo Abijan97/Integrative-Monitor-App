@@ -9,7 +9,9 @@ function AlertsTable({ user, sensor, setSensor }) {
   const [alerts, setalerts] = useState([]);
   useEffect(() => {
     axios
-      .get(`${api}/get-alerts/sensor/${sensor}`)
+      .get(`${api}/api/alert/get`,{
+        sensorId:sensor
+      })
       .then((res) => {
         console.log("Alerts Records", res.data);
         setalerts(res.data);
@@ -20,7 +22,7 @@ function AlertsTable({ user, sensor, setSensor }) {
   }, [user, sensor]);
 
   return (
-    <div className="row">
+    <div className="row bg-info">
       <div className="col-2"></div>
       <div className="col-8">
         <Sensors user={user} setSensor={setSensor} sensor={sensor} />

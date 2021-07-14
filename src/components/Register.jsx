@@ -22,7 +22,7 @@ function Register(props) {
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post(`${api}/register`, userData)
+      .post(`${api}/api/auth/register`, userData)
       .then((r) => {
         localStorage.setItem("token", r.data.jwt);
         toast.success(`${r.data.msg}`);
@@ -35,6 +35,7 @@ function Register(props) {
       });
   };
 
+ 
   return (
     <div className="row bg-success">
       <div className="col-12 mt-5">
@@ -43,7 +44,7 @@ function Register(props) {
         </center>
       </div>
       <div className="col-3"></div>
-      <form className="container mt-5 mb-5 col-6" >
+      <form className="container mt-5 mb-5 col-6">
         <div className="row">
           <div className="col-12">
             <div className="row">
@@ -88,6 +89,7 @@ function Register(props) {
               </div>
               <div className="form-group col-12 mt-3">
                 <center>
+                  
                   <button
                     onClick={submit}
                     type="submit"

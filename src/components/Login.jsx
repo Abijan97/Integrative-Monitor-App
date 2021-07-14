@@ -21,7 +21,7 @@ function Login(props) {
   const submit = async (e) => {
     e.preventDefault();
     axios
-      .post(`${api}/login`, loginData)
+      .post(`${api}/api/auth/login`, loginData)
       .then((r) => {
         localStorage.setItem("token", r.data.jwt);
         toast.success(`${r.data.msg}`);
@@ -34,12 +34,11 @@ function Login(props) {
       });
   };
 
-
   return (
     <div className="row bg-success">
       <div className="col-12 mt-5">
         <center>
-          <h3>User Login</h3>
+          <h3 className="text-white">Login</h3>
         </center>
       </div>
       <div className="col-3"></div>
@@ -85,7 +84,7 @@ function Login(props) {
                 </center>
                 <center className="mt-2">
                   <Link to="/register">
-                    <small style={{ color: "white" }}>User Registration</small>
+                    <small style={{ color: "white" }}>Registration</small>
                   </Link>
                 </center>
               </div>

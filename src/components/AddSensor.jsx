@@ -26,7 +26,7 @@ function AddSensor() {
     e.preventDefault();
     console.log(sensorData);
     axios
-      .post(`${api}/add-sensor`, sensorData)
+      .post(`${api}/api/sensor/add`, sensorData)
       .then((r) => {
         toast.success(r.data);
       })
@@ -35,8 +35,9 @@ function AddSensor() {
       });
   };
 
+  
   return (
-    <div className="row">
+    <div className="row bg-info">
       <div className="col-1"></div>
       <div className="col-1">
         <h6>Add Sensor</h6>

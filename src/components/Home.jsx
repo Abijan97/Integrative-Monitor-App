@@ -36,7 +36,7 @@ const Home = (props) => {
     <>
       {jwt ? (
         <div>
-          <div className="row bg-dark text-light ml-5 pt-2 pb-2 border-bottom border-dark ">
+          <div className="row bg-dark text-light ml-5 pt-5 pb-5  ">
             <div className="col-1"></div>
             <div className="col-1 mt-2 font-weight-bold">
               <h6>{uName}</h6>

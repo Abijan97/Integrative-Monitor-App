@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/5921905e-77ad-4c46-b0f1-48ab78e64ca8/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/design-patten-mit",
+    "appService.deploySubpath": "."
+}

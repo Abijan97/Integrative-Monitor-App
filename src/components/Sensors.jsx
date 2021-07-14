@@ -17,7 +17,7 @@ function Sensors({ user, setSensor, sensor }) {
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   useEffect(() => {
-    axios.get(`${api}/get-sensors/${user}`).then((res) => {
+    axios.get(`${api}/api/sensor/get${user}`).then((res) => {
       setsensors(res.data);
     });
   }, [user, dropdownOpen]);
